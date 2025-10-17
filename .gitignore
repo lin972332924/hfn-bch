@@ -31,7 +31,7 @@ wheels/
 .ipynb_checkpoints
 
 # Data
-data/
+/data/
 *.jpg
 *.jpeg
 *.png
