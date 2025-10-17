@@ -1,0 +1,42 @@
+# Configuration for Breast Cancer Pathology Image Classification
+
+# Model Parameters
+model:
+  local:
+    patch_size: 224
+    num_patches: 16
+    backbone: 'resnet50'
+    pretrained: true
+  global:
+    input_size: 512
+    backbone: 'resnet50'
+    pretrained: true
+  fusion:
+    hidden_dim: 512
+    dropout: 0.5
+    num_classes: 2  # Binary classification: benign vs malignant
+
+# Training Parameters
+training:
+  batch_size: 16
+  num_epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  optimizer: 'adam'
+  scheduler: 'cosine'
+  early_stopping_patience: 10
+
+# Data Parameters
+data:
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  num_workers: 4
+  augmentation: true
+
+# Paths
+paths:
+  data_dir: 'data/'
+  checkpoint_dir: 'checkpoints/'
+  results_dir: 'results/'
+  log_dir: 'logs/'
